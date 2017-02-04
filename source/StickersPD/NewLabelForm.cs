@@ -11,7 +11,7 @@ namespace StickersPD
             InitializeComponent();
             OkBtn.Click += (object sender, EventArgs e) =>
             {
-                Label label = new Label(ColorTbx.BackColor, NameTbx.Text);
+                Label label = new Label(ColorTbx.BackColor, NameTbx.Text, String.Empty);
                 Singleton.Instance.Labels.Add(label);
                 Serialization.Serialize();
                 Close();
@@ -28,8 +28,8 @@ namespace StickersPD
             {
                 try
                 {
-                    Label label = new Label(ColorTbx.BackColor, NameTbx.Text);
-                    Singleton.Instance.Labels[indexOfLabel] = label;
+                    var prevLabel = Singleton.Instance.Labels[indexOfLabel];
+                    prevLabel = new Label(ColorTbx.BackColor, NameTbx.Text, prevLabel.Notes);
                     Serialization.Serialize();
                     Close();
                 }

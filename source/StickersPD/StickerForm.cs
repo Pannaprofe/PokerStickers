@@ -48,15 +48,16 @@ namespace StickersPD
             }
             base.WndProc(ref m);
         }
-
-        public StickerForm()
+        Label label;
+        public StickerForm(Label lbl)
         {
             InitializeComponent();
+            label = lbl;
         }
 
         private void StickerForm_DoubleClick(object sender, EventArgs e)
         {
-            new NoteForm().Show();
+            new NoteForm(label).Show();
         }
 
         private void StickerForm_Click(object sender, EventArgs e)
@@ -82,7 +83,7 @@ namespace StickersPD
 
                 cm.MenuItems.Add("         ");
                 var menIt = new MenuItem();
-                menIt.Text = "Exit";
+                menIt.Text = "Close sticker";
                 menIt.Click +=
                     (object esender, EventArgs ee) =>
                     {
@@ -93,83 +94,5 @@ namespace StickersPD
                 cm.Show(this, new Point(me.X, me.Y));
             }
         }
-        private void menuItem1_DrawItem(object sender, System.Windows.Forms.DrawItemEventArgs e)
-        {
-            MenuItem mi = (MenuItem)sender;
-            Font menuFont = SystemInformation.MenuFont;
-            SolidBrush menuBrush = null;
-            if (mi.Enabled == false)
-            {
-                menuBrush = new SolidBrush(SystemColors.GrayText);
-            }
-            else
-            {
-                if ((e.State & DrawItemState.Selected) != 0)
-                {
-                    // Text color when selected (highlighted)
-                    menuBrush = new SolidBrush(SystemColors.HighlightText);
-                }
-                else
-                {
-                    // Text color during normal drawing
-                    menuBrush = new SolidBrush(SystemColors.MenuText);
-                }
-            }
-
-            // Center the text portion (out to side of image portion)
-            StringFormat strfmt = new StringFormat();
-            strfmt.LineAlignment = System.Drawing.StringAlignment.Center;
-
-            // Get image associated with this menu item
-            Image bmMenuImage = Image.FromFile("c:\\icon_cut.gif");
-
-            // Rectangle for image portion
-            Rectangle rectImage = e.Bounds;
-
-            // Set image rectangle same dimensions as image
-            rectImage.Width = bmMenuImage.Width;
-            rectImage.Height = bmMenuImage.Height;
-
-            // Rectanble for text portion
-            Rectangle rectText = e.Bounds;
-
-            // set wideth to x value of text portion
-            rectText.X += rectImage.Width;
-            if ((e.State & DrawItemState.Selected) != 0)
-            {
-                // Selected color
-                e.Graphics.FillRectangle(SystemBrushes.Highlight,
-                e.Bounds);
-            }
-            else
-            {
-                e.Graphics.FillRectangle(SystemBrushes.Menu,
-                e.Bounds);
-            }
-            e.Graphics.DrawImage(bmMenuImage, rectImage);
-            e.Graphics.DrawString(mi.Text,
-            menuFont,
-            menuBrush,
-            e.Bounds.Left + bmMenuImage.Width,
-            e.Bounds.Top + ((e.Bounds.Height - menuFont.Height) / 2),
-            strfmt);
-        }
-
-        private void menuItem1_MeasureItem(object sender, System.Windows.Forms.MeasureItemEventArgs e)
-        {
-            MenuItem mi = (MenuItem)sender;
-            Font menuFont = SystemInformation.MenuFont;
-
-            StringFormat strfmt = new StringFormat();
-
-            SizeF sizef = e.Graphics.MeasureString(mi.Text, menuFont, 1000, strfmt);
-            Image bmMenuImage = Image.FromFile("c:\\icon_cut.gif");
-            e.ItemWidth = (int)Math.Ceiling(sizef.Width) + bmMenuImage.Width;
-            e.ItemHeight = (int)Math.Ceiling(sizef.Height) + bmMenuImage.Height;
-        }
-
-
-
-
     }
 }
