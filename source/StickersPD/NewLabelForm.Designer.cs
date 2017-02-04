@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.NameTbx = new System.Windows.Forms.TextBox();
-            this.PaletteBtn = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.ColorTbx = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,23 +52,15 @@
             this.NameTbx.Size = new System.Drawing.Size(100, 20);
             this.NameTbx.TabIndex = 1;
             // 
-            // PaletteBtn
-            // 
-            this.PaletteBtn.Location = new System.Drawing.Point(199, 19);
-            this.PaletteBtn.Name = "PaletteBtn";
-            this.PaletteBtn.Size = new System.Drawing.Size(75, 23);
-            this.PaletteBtn.TabIndex = 3;
-            this.PaletteBtn.Text = "Palette";
-            this.PaletteBtn.UseVisualStyleBackColor = true;
-            this.PaletteBtn.Click += new System.EventHandler(this.PaletteBtn_Click);
-            // 
             // ColorTbx
             // 
+            this.ColorTbx.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ColorTbx.Location = new System.Drawing.Point(76, 22);
             this.ColorTbx.Name = "ColorTbx";
             this.ColorTbx.ReadOnly = true;
             this.ColorTbx.Size = new System.Drawing.Size(100, 20);
             this.ColorTbx.TabIndex = 5;
+            this.ColorTbx.Click += new System.EventHandler(this.ColorTbx_Click);
             // 
             // label2
             // 
@@ -82,7 +73,7 @@
             // 
             // OkBtn
             // 
-            this.OkBtn.Location = new System.Drawing.Point(199, 89);
+            this.OkBtn.Location = new System.Drawing.Point(101, 108);
             this.OkBtn.Name = "OkBtn";
             this.OkBtn.Size = new System.Drawing.Size(75, 23);
             this.OkBtn.TabIndex = 6;
@@ -94,11 +85,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 124);
+            this.ClientSize = new System.Drawing.Size(196, 143);
             this.Controls.Add(this.OkBtn);
             this.Controls.Add(this.ColorTbx);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.PaletteBtn);
             this.Controls.Add(this.NameTbx);
             this.Controls.Add(this.label1);
             this.Name = "NewLabelForm";
@@ -112,7 +102,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox NameTbx;
-        private System.Windows.Forms.Button PaletteBtn;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.TextBox ColorTbx;
         private System.Windows.Forms.Label label2;

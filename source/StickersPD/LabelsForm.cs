@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StickersPD
@@ -48,7 +41,9 @@ namespace StickersPD
             
             NewLabelForm nlf = new NewLabelForm(
                 Singleton.Instance.Labels[i].Color, 
-                Singleton.Instance.Labels[i].Name );
+                Singleton.Instance.Labels[i].Name,
+                i);
+            nlf.FormClosed += UpdateCbo;
             nlf.Show();
         }
 
@@ -58,6 +53,7 @@ namespace StickersPD
             { 
                 Singleton.Instance.Labels.RemoveAt(cboColored1.SelectedIndex);
                 Serialization.Serialize();
+                UpdateCbo();
             }
             catch { }
         }
