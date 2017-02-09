@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StickersPD.WhoIsYourPapka;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,11 +49,13 @@ namespace StickersPD
             }
             base.WndProc(ref m);
         }
-        Label label;
-        public StickerForm(Label lbl)
+        Models.Label label;
+        public StickerForm(Models.Label lbl)
         {
             InitializeComponent();
             label = lbl;
+            if (lbl != null)
+                this.BackColor = lbl.Color;
         }
 
         private void StickerForm_DoubleClick(object sender, EventArgs e)
@@ -68,7 +71,7 @@ namespace StickersPD
             {
                 ContextMenu cm = new ContextMenu();
 
-                foreach (var lbl in Singleton.Instance.Labels)
+                foreach (var lbl in iAmYourPapka.Instance.Labels)
                 {
                     var menuItem = new MenuItem();
                     menuItem.Text = lbl.Name;

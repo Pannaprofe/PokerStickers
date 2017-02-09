@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace StickersPD
+namespace StickersPD.Models
 {
     [Serializable]
     public class Label
@@ -13,12 +13,14 @@ namespace StickersPD
         public Color Color { get; private set; }
         public string Name { get; private set; }
         public string Notes { get; private set; }
+        public bool Shown { get; private set; }
 
-        public Label(Color color, string name, string notes)
+        public Label(Color color, string name, string notes, bool showSticker)
         {
             Color = color;
             Name = name;
             Notes = notes;
+            Shown = showSticker;
         }
 
         public void ChangeColor(Color color)

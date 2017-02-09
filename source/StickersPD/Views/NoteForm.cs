@@ -1,12 +1,13 @@
-﻿using System;
+﻿using StickersPD.WhoIsYourPapka;
+using System;
 using System.Windows.Forms;
 
 namespace StickersPD
 {
     public partial class NoteForm : Form
     {
-        Label label;
-        public NoteForm(Label lbl)
+        Models.Label label;
+        public NoteForm(Models.Label lbl)
         {
             InitializeComponent();
             if (lbl == null)
@@ -22,8 +23,8 @@ namespace StickersPD
                 this.Close();
                 return;
             }
-            label = new StickersPD.Label(label.Color, label.Name, NotesRtb.Text);
-            Serialization.Serialize();
+            label = new Models.Label(label.Color, label.Name, NotesRtb.Text, label.Shown);
+            iAmYourPapka.Serialize();
             this.Close();
         }
     }

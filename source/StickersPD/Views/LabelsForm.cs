@@ -1,5 +1,7 @@
-﻿using System;
+﻿using StickersPD.WhoIsYourPapka;
+using System;
 using System.Windows.Forms;
+
 
 namespace StickersPD
 {
@@ -8,7 +10,7 @@ namespace StickersPD
         public LabelsForm()
         {
             InitializeComponent();
-            cboColored1.DataSource = Singleton.Instance.Labels;
+            cboColored1.DataSource = iAmYourPapka.Instance.Labels;
             cboColored1.ValueMember = "Color";
             cboColored1.DisplayMember = "Name";
         }
@@ -16,9 +18,9 @@ namespace StickersPD
         public void UpdateCbo(object sender, EventArgs neventArgs) { UpdateCbo(); }
         public void UpdateCbo()
         {
-            cboColored1.DataSource = Singleton.Instance.Labels;
+            cboColored1.DataSource = iAmYourPapka.Instance.Labels;
             BindingSource bSource = new BindingSource();
-            bSource.DataSource = Singleton.Instance.Labels;
+            bSource.DataSource = iAmYourPapka.Instance.Labels;
             cboColored1.DataSource = bSource;
         }
 
@@ -40,8 +42,8 @@ namespace StickersPD
             int i = cboColored1.SelectedIndex;
             
             NewLabelForm nlf = new NewLabelForm(
-                Singleton.Instance.Labels[i].Color, 
-                Singleton.Instance.Labels[i].Name,
+                iAmYourPapka.Instance.Labels[i].Color, 
+                iAmYourPapka.Instance.Labels[i].Name,
                 i);
             nlf.FormClosed += UpdateCbo;
             nlf.Show();
@@ -51,8 +53,8 @@ namespace StickersPD
         {
             try
             { 
-                Singleton.Instance.Labels.RemoveAt(cboColored1.SelectedIndex);
-                Serialization.Serialize();
+                iAmYourPapka.Instance.Labels.RemoveAt(cboColored1.SelectedIndex);
+                iAmYourPapka.Serialize();
                 UpdateCbo();
             }
             catch { }

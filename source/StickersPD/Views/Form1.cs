@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StickersPD.WhoIsYourPapka;
+using System;
 using System.Windows.Forms;
 
 namespace StickersPD
@@ -8,7 +9,7 @@ namespace StickersPD
         public Form1()
         {
             InitializeComponent();
-            Serialization.Deserialize();
+            iAmYourPapka.Deserialize();
             var msg = String.Format("{0}{1}{2}{3}{4}{5}",
                 "Паш, я залил твой проект в репозиторий на GitHub, а исходники переместил в папку C:\\Repos\\PokerStickers.\n\n",
                 "Так же скачал и установил тебе SourceTree, сделал первый коммит, можешь и дальше пользоваться.\n\n",

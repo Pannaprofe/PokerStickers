@@ -49,52 +49,51 @@
     <Compile Include="cboColored.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Views\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Label.cs" />
-    <Compile Include="LabelsForm.cs">
+    <Compile Include="Models\Label.cs" />
+    <Compile Include="Views\LabelsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LabelsForm.Designer.cs">
+    <Compile Include="Views\LabelsForm.Designer.cs">
       <DependentUpon>LabelsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewLabelForm.cs">
+    <Compile Include="Views\NewLabelForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewLabelForm.Designer.cs">
+    <Compile Include="Views\NewLabelForm.Designer.cs">
       <DependentUpon>NewLabelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NoteForm.cs">
+    <Compile Include="Views\NoteForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NoteForm.Designer.cs">
+    <Compile Include="Views\NoteForm.Designer.cs">
       <DependentUpon>NoteForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serialization.cs" />
-    <Compile Include="Singletone.cs" />
-    <Compile Include="Sticker.cs" />
-    <Compile Include="StickerForm.cs">
+    <Compile Include="WhoIsYourPapka\iAmYourPapka.cs" />
+    <Compile Include="Models\Sticker.cs" />
+    <Compile Include="Views\StickerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StickerForm.Designer.cs">
+    <Compile Include="Views\StickerForm.Designer.cs">
       <DependentUpon>StickerForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LabelsForm.resx">
+    <EmbeddedResource Include="Views\LabelsForm.resx">
       <DependentUpon>LabelsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewLabelForm.resx">
+    <EmbeddedResource Include="Views\NewLabelForm.resx">
       <DependentUpon>NewLabelForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NoteForm.resx">
+    <EmbeddedResource Include="Views\NoteForm.resx">
       <DependentUpon>NoteForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -106,7 +105,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="StickerForm.resx">
+    <EmbeddedResource Include="Views\StickerForm.resx">
       <DependentUpon>StickerForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -122,6 +121,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

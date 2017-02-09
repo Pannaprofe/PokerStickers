@@ -1,6 +1,8 @@
-﻿using System;
+﻿using StickersPD.WhoIsYourPapka;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
+using StickersPD.Models;
 
 namespace StickersPD
 {
@@ -11,9 +13,9 @@ namespace StickersPD
             InitializeComponent();
             OkBtn.Click += (object sender, EventArgs e) =>
             {
-                Label label = new Label(ColorTbx.BackColor, NameTbx.Text, String.Empty);
-                Singleton.Instance.Labels.Add(label);
-                Serialization.Serialize();
+                var label = new Models.Label(ColorTbx.BackColor, NameTbx.Text, String.Empty, false);
+                iAmYourPapka.Instance.Labels.Add(label);
+                iAmYourPapka.Serialize();
                 Close();
             };
             MessageBox.Show("Убрал лишнюю кнопку, кликай просто на поле с цветом для выбора нового цвета.");
@@ -28,9 +30,9 @@ namespace StickersPD
             {
                 try
                 {
-                    var prevLabel = Singleton.Instance.Labels[indexOfLabel];
-                    prevLabel = new Label(ColorTbx.BackColor, NameTbx.Text, prevLabel.Notes);
-                    Serialization.Serialize();
+                    var prevLabel = iAmYourPapka.Instance.Labels[indexOfLabel];
+                    prevLabel = new Models.Label(ColorTbx.BackColor, NameTbx.Text, prevLabel.Notes, prevLabel.Shown);
+                    iAmYourPapka.Serialize();
                     Close();
                 }
                 catch (Exception ex)
